@@ -1,0 +1,38 @@
+{
+  "app": {
+    "port": 3000,
+    "jwtSecret": "your-jwt-secret-key-here",
+    "baseUrl": "http://localhost:3000"
+  },
+  "storage": {
+    "type": "disk",  // Can be 's3' or 'disk'
+    "disk": {
+      "uploadDir": "./uploads"
+    },
+    "s3": {
+      "accessKeyId": "your-access-key-id",
+      "secretAccessKey": "your-secret-access-key",
+      "region": "us-east-1",
+      "bucket": "your-bucket-name",
+      "endpoint": null
+    }
+  },
+  "ldap": {
+    "url": "ldap://ldap.example.com:389",
+    "bindDN": "cn=admin,dc=example,dc=com",
+    "bindCredentials": "admin-password",
+    "searchBase": "ou=users,dc=example,dc=com",
+    "searchFilter": "(uid={{username}})",
+    "attributes": ["dn", "cn", "mail", "memberOf"]
+  },
+  "database": {
+    "uri": "mongodb://localhost:27017/codex",
+    "options": {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true
+    }
+  },
+  "logging": {
+    "level": "info"
+  }
+}
